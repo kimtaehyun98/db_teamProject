@@ -7,5 +7,4 @@ public class Password {
 	
 	private String pw = "";
 	
-	
 }

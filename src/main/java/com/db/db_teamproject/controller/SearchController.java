@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Map;
 
 @Slf4j
@@ -21,12 +23,16 @@ public class SearchController {
 	private SearchRepository searchRepository;
 	
 	@GetMapping("/search")
-	public String search(@RequestParam Map<String, String> params){
+	public String search(Model model, @RequestParam Map<String, String> params){
 		searchService = new SearchService(params);
 		searchRepository = new SearchRepository();
 		
 		String query = searchService.makeSearchQuery();
-		searchRepository.search(query);
+		ArrayList<Search> employees = searchRepository.search(query, searchService.getCheck());
+		
+		model.addAttribute("check", searchService.getCheck());
+		model.addAttribute("tableHeaders", searchService.getHeader());
+		model.addAttribute("employees", employees);
 		
 		return "/jsp/search.jsp";
 	}

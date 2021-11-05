@@ -17,4 +17,17 @@ public class Search {
 	private String supervisor = "";
 	private String department = "";
 	
+	@Override
+	public String toString() {
+		return "Search{" +
+				"name='" + name + '\'' +
+				", ssn='" + ssn + '\'' +
+				", bDate='" + bDate + '\'' +
+				", address='" + address + '\'' +
+				", sex='" + sex + '\'' +
+				", salary='" + salary + '\'' +
+				", supervisor='" + supervisor + '\'' +
+				", department='" + department + '\'' +
+				'}';
+	}
 }
