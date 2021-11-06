@@ -6,6 +6,17 @@
 </head>
 <body>
 <h1>메인 페이지</h1>
+<p>검색 범위</p>
+<form>
+    <select name="검색범위" >
+        <option value="none" selected>전체</option>
+        <option value="department">부서</option>
+        <option value="sex">성별</option>
+        <option value="salary">연봉</option>
+        <option value="bdate">생일</option>
+        <option value="supervisor">부하직원</option>
+    </select>
+</form>
 <p>검색 항목</p>
 <form method="get" action="/search">
     <label><input type="checkbox" name="name" value="NAME" checked> Name</label>

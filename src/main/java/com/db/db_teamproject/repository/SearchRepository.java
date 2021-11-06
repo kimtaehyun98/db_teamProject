@@ -36,9 +36,8 @@ public class SearchRepository {
 			stmt = con.createStatement();
 			
 			// 전체 쿼리
-			// select e.fname, e.lname, e.ssn, e.bdate, e.address, e.sex, e.salary, s.fname as s_fname, s.lname as s_lname, d.dname
-			// from employee e, department d, employee s
-			// where e.dno=d.dnumber and e.super_ssn=s.ssn;
+			// SELECT e.fname as e_fname, e.lname as e_lname, e.ssn as e_ssn, e.bdate as e_bdate, e.address as e_address, e.sex as e_sex, e.salary as e_salary, s.fname as s_fname, s.lname as s_lname, d.dname
+			// FROM (EMPLOYEE e LEFT OUTER JOIN DEPARTMENT d ON e.Dno=d.Dnumber) LEFT OUTER JOIN EMPLOYEE s on e.super_ssn=s.ssn
 			String sql = "SELECT " + select + " FROM (EMPLOYEE e LEFT OUTER JOIN DEPARTMENT d ON e.Dno=d.Dnumber) LEFT OUTER JOIN EMPLOYEE s on e.super_ssn=s.ssn";
 			log.info("최종 sql : " + sql);
 			

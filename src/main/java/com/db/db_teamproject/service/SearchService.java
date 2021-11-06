@@ -71,7 +71,7 @@ public class SearchService {
 		if(q.length() > 0) {
 			q = q.substring(0,q.length()-2);
 		}
-		log.info(q);
+		// log.info(q);
 		return q;
 	}
 }
