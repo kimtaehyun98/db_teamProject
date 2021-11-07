@@ -29,7 +29,7 @@
             for(int i=0;i<employees.size();i++){
         %>
         <tr>
-            <td><label><input type="checkbox" value="tup"></label></td>
+            <td><label><input type="checkbox" value="tup"+<%String.valueOf(i);%>></label></td>
         <%
                 if(check.get(0)) {
         %>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
+<script type="text/javascript" src="src/main/webapp/js/home.js"></script>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -6,9 +7,9 @@
 </head>
 <body>
 <h1>메인 페이지</h1>
-<p>검색 범위</p>
-<form>
-    <select name="검색범위" id="selectBox1">
+<form method="get" action="/search">
+    <p>검색 범위</p>
+    <select name = "mainCategory" onchange="categoryChange(this)">
         <option value="none" selected>전체</option>
         <option value="department">부서</option>
         <option value="sex">성별</option>
@@ -16,25 +17,33 @@
         <option value="bdate">생일</option>
         <option value="supervisor">부하직원</option>
     </select>
-    // 이걸로 구글링하기 : Select box 특정 옵션 선택시 show/hide
-    // https://truecode-95.tistory.com/47
-    <select name="검색범위" id = "category">
-        <option>조건 선택</option>
+
+    <select name="subCategory" id = "category">
     </select>
-    <input type = "text" name = "검색범위">
+    <input type = "text" name = "inputText">
+
     <script>
         function categoryChange(e){
-            let none = [];
-            let department = ["Research", "Administration", "Headquarters"];
-            let sex = ["M", "F"];
-            let salary = [];
-            let bdate = [];
-            let supervisor = [];
+            var none = [];
+            var department = ["Research", "Administration", "Headquarters"];
+            var sex = ["M", "F"];
+            var target = document.getElementById("category");
+
+            if(e.value == "department") var d = department;
+            else if(e.value == "sex") var d = sex;
+            else var d = none;
+
+            target.options.length = 0;
+
+            for (x in d) {
+                var opt = document.createElement("option");
+                opt.value = d[x];
+                opt.innerHTML = d[x];
+                target.appendChild(opt);
+            }
         }
     </script>
-</form>
-<p>검색 항목</p>
-<form method="get" action="/search">
+    <p>검색 항목</p>
     <label><input type="checkbox" name="name" value="NAME" checked> Name</label>
     <label><input type="checkbox" name="ssn" value="SSN" checked> Ssn</label>
     <label><input type="checkbox" name="bDate" value="BDATE" checked> Bdate</label>
