@@ -44,14 +44,14 @@
         }
     </script>
     <p>검색 항목</p>
-    <label><input type="checkbox" name="name" value="NAME" checked> Name</label>
-    <label><input type="checkbox" name="ssn" value="SSN" checked> Ssn</label>
-    <label><input type="checkbox" name="bDate" value="BDATE" checked> Bdate</label>
-    <label><input type="checkbox" name="address" value="ADDRESS" checked> Address</label>
-    <label><input type="checkbox" name="sex" value="SEX" checked> Sex</label>
-    <label><input type="checkbox" name="salary" value="SALARY" checked> Salary</label>
-    <label><input type="checkbox" name="supervisor" value="SUPERVISOR" checked> Supervisor</label>
-    <label><input type="checkbox" name="department" value="DEPARTMENT" checked> Department</label>
+    <label><input type="checkbox" name="name" value="1" checked> Name</label>
+    <label><input type="checkbox" name="ssn" value="1" checked> Ssn</label>
+    <label><input type="checkbox" name="bdate" value="1" checked> Bdate</label>
+    <label><input type="checkbox" name="address" value="1" checked> Address</label>
+    <label><input type="checkbox" name="sex" value="1" checked> Sex</label>
+    <label><input type="checkbox" name="salary" value="1" checked> Salary</label>
+    <label><input type="checkbox" name="supervisor" value="1" checked> Supervisor</label>
+    <label><input type="checkbox" name="department" value="1" checked> Department</label>
     <p><input type="submit" value="검색"></p>
 </form>
 </body>

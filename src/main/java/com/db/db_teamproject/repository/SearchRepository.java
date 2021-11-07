@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Slf4j
 public class SearchRepository {
 
-	public ArrayList<Search> search(String select, ArrayList<Boolean> check){
+		public ArrayList<Search> search(String query, ArrayList<Boolean> check){
 		
 		Password pw = new Password();
 		
@@ -38,7 +38,7 @@ public class SearchRepository {
 			// 전체 쿼리
 			// SELECT e.fname as e_fname, e.lname as e_lname, e.ssn as e_ssn, e.bdate as e_bdate, e.address as e_address, e.sex as e_sex, e.salary as e_salary, s.fname as s_fname, s.lname as s_lname, d.dname
 			// FROM (EMPLOYEE e LEFT OUTER JOIN DEPARTMENT d ON e.Dno=d.Dnumber) LEFT OUTER JOIN EMPLOYEE s on e.super_ssn=s.ssn
-			String sql = "SELECT " + select + " FROM (EMPLOYEE e LEFT OUTER JOIN DEPARTMENT d ON e.Dno=d.Dnumber) LEFT OUTER JOIN EMPLOYEE s on e.super_ssn=s.ssn";
+			String sql = query;
 			log.info("최종 sql : " + sql);
 			
 			// 쿼리 수행
