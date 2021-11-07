@@ -17,6 +17,7 @@
 %>
 <h1>검색 테이블 출력</h1>
 <table border = "1">
+            <th>선택</th>
         <%
             for(int i = 0; i < tableHeaders.size(); i++){
         %>
@@ -28,6 +29,7 @@
             for(int i=0;i<employees.size();i++){
         %>
         <tr>
+            <td><label><input type="checkbox" value="tup"></label></td>
         <%
                 if(check.get(0)) {
         %>

@@ -8,7 +8,7 @@
 <h1>메인 페이지</h1>
 <p>검색 범위</p>
 <form>
-    <select name="검색범위" >
+    <select name="검색범위" id="selectBox1">
         <option value="none" selected>전체</option>
         <option value="department">부서</option>
         <option value="sex">성별</option>
@@ -16,6 +16,22 @@
         <option value="bdate">생일</option>
         <option value="supervisor">부하직원</option>
     </select>
+    // 이걸로 구글링하기 : Select box 특정 옵션 선택시 show/hide
+    // https://truecode-95.tistory.com/47
+    <select name="검색범위" id = "category">
+        <option>조건 선택</option>
+    </select>
+    <input type = "text" name = "검색범위">
+    <script>
+        function categoryChange(e){
+            let none = [];
+            let department = ["Research", "Administration", "Headquarters"];
+            let sex = ["M", "F"];
+            let salary = [];
+            let bdate = [];
+            let supervisor = [];
+        }
+    </script>
 </form>
 <p>검색 항목</p>
 <form method="get" action="/search">
