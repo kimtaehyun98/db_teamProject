@@ -1,9 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" %>
-<script type="text/javascript" src="src/main/webapp/js/home.js"></script>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>DB_706_11</title>
 </head>
 <body>
 <h1>메인 페이지</h1>
