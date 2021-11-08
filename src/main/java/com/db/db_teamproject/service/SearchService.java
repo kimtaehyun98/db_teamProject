@@ -37,7 +37,7 @@ public class SearchService {
 		for(String key : searchParams.keySet()){
 			String temp = "";
 			if(key.equals("name")) {
-				temp = "e.fname as e_fname, e.lname as e_lname";
+				temp = "e.fname as e_fname, e.lname as e_lname, e.minit as e_minit";
 				check.set(0, true);
 				header.add("NAME");
 			}
