@@ -48,7 +48,7 @@ public class SearchRepository {
 			while(rs.next()){
 				Search search = new Search();
 				if(check.get(0)){
-					search.setName(checkNull(rs.getString("e_fname")) + " "+ checkNull(rs.getString("e_lname")));
+					search.setName(checkNull(rs.getString("e_fname")) + " "+ checkNull(rs.getString("e_minit")) + " " + checkNull(rs.getString("e_lname")));
 				}
 				if(check.get(1)){
 					search.setSsn(checkNull(rs.getString("e_ssn")));
