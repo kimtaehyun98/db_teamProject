@@ -1,5 +1,7 @@
 package com.db.db_teamproject.service;
 
+import com.db.db_teamproject.model.Search;
+import com.db.db_teamproject.repository.SearchRepository;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,21 +12,25 @@ import java.util.Map;
 @Getter
 public class SearchService {
 	
+	private SearchRepository searchRepository = new SearchRepository();
 	private Map<String, String> searchParams;
 	
-	public SearchService(Map<String, String> searchParams) {
-		this.searchParams = searchParams;
-	}
-	
-	private ArrayList<Boolean> check = new ArrayList<>();
-	private ArrayList<String> header = new ArrayList<>();
+	private ArrayList<Boolean> check;
+	private ArrayList<String> header;
 	
 	private String mainCategory;
 	private String subCategory;
 	private String inputText;
 	
+	public ArrayList<Search> search(Map<String,String> params){
+		searchParams = params;
+		return searchRepository.search(makeSearchQuery(),check);
+	}
+	
 	public String makeSearchQuery(){
 		// 여기서 db에 접근해서 결과를 구한 뒤 model에 담아서 search 페이지 호출하면 됨
+		check = new ArrayList<>();
+		header = new ArrayList<>();
 		for(int i = 0; i < 8; i++) check.add(false);
 		String q = "";
 		boolean mc = true;

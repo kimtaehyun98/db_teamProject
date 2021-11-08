@@ -53,5 +53,8 @@
     <label><input type="checkbox" name="department" value="1" checked> Department</label>
     <p><input type="submit" value="검색"></p>
 </form>
+<form method = "get" action = "/insertPage">
+    <p><input type="submit" value="직원 정보 추가 페이지로 가기"></p>
+</form>
 </body>
 </html>

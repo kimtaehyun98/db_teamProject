@@ -26,6 +26,8 @@ dependencies {
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'javax.servlet:jstl'
     // jsp 끝
+    // validation 설정 추가
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'

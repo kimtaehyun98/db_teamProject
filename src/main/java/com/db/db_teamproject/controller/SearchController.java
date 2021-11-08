@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -16,20 +15,16 @@ import java.util.Map;
 @Controller
 public class SearchController {
 	
-	private SearchService searchService;
-	private SearchRepository searchRepository;
+	private SearchService searchService = new SearchService();
 	
 	@GetMapping("/search")
 	private String search(Model model, @RequestParam Map<String, String> params){
-		searchService = new SearchService(params);
-		searchRepository = new SearchRepository();
 		
-		String query = searchService.makeSearchQuery();
-		ArrayList<Search> employees = searchRepository.search(query, searchService.getCheck());
+		ArrayList<Search> searches = searchService.search(params);
 		
 		model.addAttribute("check", searchService.getCheck());
 		model.addAttribute("tableHeaders", searchService.getHeader());
-		model.addAttribute("employees", employees);
+		model.addAttribute("searches", searches);
 		
 		return "/jsp/search.jsp";
 	}

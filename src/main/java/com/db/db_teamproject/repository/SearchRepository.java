@@ -1,7 +1,7 @@
 package com.db.db_teamproject.repository;
 
-import com.db.db_teamproject.model.Password;
 import com.db.db_teamproject.model.Search;
+import com.db.db_teamproject.model.Password;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +19,7 @@ public class SearchRepository {
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
-		ArrayList<Search> employees = new ArrayList<>();
+		ArrayList<Search> searches = new ArrayList<>();
 		
 		// 연결
 		try {
@@ -71,7 +71,7 @@ public class SearchRepository {
 				if(check.get(7)){
 					search.setDepartment(checkNull(rs.getString("dname")));
 				}
-				employees.add(search);
+				searches.add(search);
 			}
 			
 		} catch (SQLException e){
@@ -88,7 +88,7 @@ public class SearchRepository {
 			e.printStackTrace();
 		}
 		
-		return employees;
+		return searches;
 	}
 
 	public String checkNull(String str){

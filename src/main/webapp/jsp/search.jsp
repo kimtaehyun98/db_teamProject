@@ -4,15 +4,16 @@
 <%@ page import ="java.lang.*" %>
 <%@ page import ="com.db.db_teamproject.model.Search" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="com.db.db_teamproject.model.Search" %>
 
 <%!
     ArrayList<Boolean> check;
-    ArrayList<Search> employees;
+    ArrayList<Search> searches;
     ArrayList<String> tableHeaders;
 %>
 <%
     check = (ArrayList<Boolean>) request.getAttribute("check");
-    employees = (ArrayList<Search>) request.getAttribute("employees");
+    searches = (ArrayList<Search>) request.getAttribute("searches");
     tableHeaders = (ArrayList<String>) request.getAttribute("tableHeaders");
 %>
 <h1>검색 테이블 출력</h1>
@@ -27,42 +28,42 @@
             }
         %>
         <%
-            for(int i=0;i<employees.size();i++){
+            for(int i = 0; i< searches.size(); i++){
         %>
         <tr>
-            <td><label><input type="checkbox" name = "<%=employees.get(i).getName()%>" value="<%=employees.get(i).getSsn()%>" onchange="viewName(this)"></label></td>
+            <td><label><input type="checkbox" name = "ssn" value="<%=searches.get(i).getSsn()%>" onchange="viewName(this)"></label></td>
             <%
                 if(check.get(0))
             %>
-            <td><%=employees.get(i).getName()%></td>
+            <td><%=searches.get(i).getName()%></td>
             <%
                 if(check.get(1))
             %>
-            <td><%=employees.get(i).getSsn()%></td>
+            <td><%=searches.get(i).getSsn()%></td>
             <%
                 if(check.get(2))
             %>
-            <td><%=employees.get(i).getBDate()%></td>
+            <td><%=searches.get(i).getBDate()%></td>
             <%
                 if(check.get(3))
             %>
-            <td><%=employees.get(i).getAddress()%></td>
+            <td><%=searches.get(i).getAddress()%></td>
             <%
                 if(check.get(4))
             %>
-            <td><%=employees.get(i).getSex()%></td>
+            <td><%=searches.get(i).getSex()%></td>
             <%
                 if(check.get(5))
             %>
-            <td><%=employees.get(i).getSalary()%></td>
+            <td><%=searches.get(i).getSalary()%></td>
             <%
                 if(check.get(6))
             %>
-            <td><%=employees.get(i).getSupervisor()%></td>
+            <td><%=searches.get(i).getSupervisor()%></td>
             <%
                 if(check.get(7))
             %>
-            <td><%=employees.get(i).getDepartment()%></td>
+            <td><%=searches.get(i).getDepartment()%></td>
         </tr>
         <%
             }

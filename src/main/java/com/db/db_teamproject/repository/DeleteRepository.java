@@ -1,7 +1,6 @@
 package com.db.db_teamproject.repository;
 
 import com.db.db_teamproject.model.Password;
-import com.db.db_teamproject.model.Search;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
