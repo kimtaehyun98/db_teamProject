@@ -99,7 +99,6 @@ public class SearchService {
 	
 	private String categorySearch(){
 		String w = " WHERE ";
-		log.info(subCategory);
 		if(mainCategory.equals("department")) {
 			w += "d.dname=" + change(subCategory);
 		}

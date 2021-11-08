@@ -16,7 +16,7 @@
     tableHeaders = (ArrayList<String>) request.getAttribute("tableHeaders");
 %>
 <h1>검색 테이블 출력</h1>
-<form method = "post" action="/delete">
+<form method = "post" action="/updates">
     <table border = "1">
         <th>선택</th>
         <%
@@ -32,61 +32,50 @@
         <tr>
             <td><label><input type="checkbox" name = "<%=employees.get(i).getName()%>" value="<%=employees.get(i).getSsn()%>" onchange="viewName(this)"></label></td>
             <%
-                if(check.get(0)) {
+                if(check.get(0))
             %>
             <td><%=employees.get(i).getName()%></td>
             <%
-                }
-                if(check.get(1)) {
+                if(check.get(1))
             %>
             <td><%=employees.get(i).getSsn()%></td>
             <%
-                }
-                if(check.get(2)) {
+                if(check.get(2))
             %>
             <td><%=employees.get(i).getBDate()%></td>
             <%
-                }
-                if(check.get(3)) {
+                if(check.get(3))
             %>
             <td><%=employees.get(i).getAddress()%></td>
             <%
-                }
-                if(check.get(4)) {
+                if(check.get(4))
             %>
             <td><%=employees.get(i).getSex()%></td>
             <%
-                }
-                if(check.get(5)) {
+                if(check.get(5))
             %>
             <td><%=employees.get(i).getSalary()%></td>
             <%
-                }
-                if(check.get(6)) {
+                if(check.get(6))
             %>
             <td><%=employees.get(i).getSupervisor()%></td>
             <%
-                }
-                if(check.get(7)) {
+                if(check.get(7))
             %>
             <td><%=employees.get(i).getDepartment()%></td>
-            <%
-                }
-            %>
         </tr>
         <%
             }
         %>
     </table>
-    <p><input type="submit">삭제</p>
+    <p><input type = "submit" name = "update" value = "DELETE"></p>
+    <p>수정 :
+        <select name = "updateCategory">
+            <option value="address">Address</option>
+            <option value="sex">Sex</option>
+            <option value="salary">Salary</option>
+        </select>
+        <input type = "text" name = "updateText">
+        <input type = "submit" name = "update" value = "UPDATE">
+    </p>
 </form>
-<script>
-    function viewName(e){
-        console.log(e.value);
-        // 데이터 출력
-        document.getElementById('selectEmployee').innerText
-            = e.value + "     ";
-    }
-</script>
-<h2>선택한 직원</h2>
-<div id='selectEmployee'></div>
