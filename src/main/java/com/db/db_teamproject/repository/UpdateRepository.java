@@ -14,8 +14,8 @@ public class UpdateRepository {
 	
 	Password pw = new Password();
 	
-	public void update(ArrayList<String> queries){
-		
+	public boolean update(ArrayList<String> queries){
+		boolean ret = true;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
@@ -39,10 +39,10 @@ public class UpdateRepository {
 				pstmt.executeUpdate();
 			}
 			
-		} catch (
-				SQLException e){
+		} catch (SQLException e){
 			System.err.println("연결할 수 없습니다.");
 			e.printStackTrace();
+			ret = false;
 		}
 		
 		// 해제
@@ -53,5 +53,6 @@ public class UpdateRepository {
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
+		return ret;
 	}
 }

@@ -28,7 +28,7 @@ public class UpdateController {
 			deleteService.delete(update);
 		}
 		else{ // update
-			updateService.update(update);
+			if(updateService.update(update) == false) return "/jsp/updateFail.jsp";
 		}
 		return "/jsp/home.jsp";
 	}

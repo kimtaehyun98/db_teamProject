@@ -14,8 +14,8 @@ public class UpdateService {
 	// 예시 SQL : UPDATE EMPLOYEE SET SALARY = 70000 WHERE Ssn = 111111111;
 	private String updateQuery = "UPDATE EMPLOYEE SET ";
 	
-	public void update(Update updateInfo){
-		updateRepository.update(makeUpdateQuery(updateInfo));
+	public boolean update(Update updateInfo){
+		return updateRepository.update(makeUpdateQuery(updateInfo));
 	}
 	
 	private ArrayList<String> makeUpdateQuery(Update updateInfo){
