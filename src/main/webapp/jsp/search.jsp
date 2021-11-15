@@ -28,42 +28,52 @@
             }
         %>
         <%
-            for(int i = 0; i< searches.size(); i++){
+            for(int i = 0; i < searches.size(); i++){
         %>
         <tr>
-            <td><label><input type="checkbox" name = "ssn" value="<%=searches.get(i).getSsn()%>" onchange="viewName(this)"></label></td>
+            <td><label><input type="checkbox" name = "ssn" value="<%=searches.get(i).getSsn()%>"></label></td>
             <%
-                if(check.get(0))
+                if(check.get(0)) {
             %>
             <td><%=searches.get(i).getName()%></td>
             <%
-                if(check.get(1))
+                }
+                if(check.get(1)) {
             %>
             <td><%=searches.get(i).getSsn()%></td>
             <%
-                if(check.get(2))
+                }
+                if(check.get(2)) {
             %>
             <td><%=searches.get(i).getBDate()%></td>
             <%
-                if(check.get(3))
+                }
+                if(check.get(3)) {
             %>
             <td><%=searches.get(i).getAddress()%></td>
             <%
-                if(check.get(4))
+                }
+                if(check.get(4)) {
             %>
             <td><%=searches.get(i).getSex()%></td>
             <%
-                if(check.get(5))
+                }
+                if(check.get(5)) {
             %>
             <td><%=searches.get(i).getSalary()%></td>
             <%
-                if(check.get(6))
+                }
+                if(check.get(6)) {
             %>
             <td><%=searches.get(i).getSupervisor()%></td>
             <%
-                if(check.get(7))
+                }
+                if(check.get(7)) {
             %>
             <td><%=searches.get(i).getDepartment()%></td>
+            <%
+                }
+            %>
         </tr>
         <%
             }

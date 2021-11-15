@@ -24,6 +24,9 @@ public class UpdateController {
 	
 	@PostMapping("/updates")
 	private String updates(@ModelAttribute Update update){
+		if(checkSsn(update)) { // ssn 에러 페이지
+			return "/jsp/noSsn.jsp";
+		}
 		if(update.getUpdate().equals("DELETE")){ // delete
 			deleteService.delete(update);
 		}
@@ -31,5 +34,13 @@ public class UpdateController {
 			if(updateService.update(update) == false) return "/jsp/updateFail.jsp";
 		}
 		return "/jsp/home.jsp";
+	}
+	
+	private boolean checkSsn(Update update){
+		boolean ret = true;
+		for(String ssn : update.getSsn()) {
+			if(!ssn.equals("")) ret = false;
+		}
+		return ret;
 	}
 }

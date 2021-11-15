@@ -119,7 +119,7 @@ public class SearchService {
 			w += "e.bdate LIKE " + "'_____" + inputText + "%'";
 		}
 		else if(mainCategory.equals("supervisor")) {
-			w += "s.fname=" + change(inputText);
+			w += "s.ssn=" + change(inputText);
 		}
 		return w;
 	}
